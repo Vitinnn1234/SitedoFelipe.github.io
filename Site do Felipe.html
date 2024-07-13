@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Felipe é viado?</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px; /* para separar os botões */
+    }
+
+    #message {
+      display: none;
+      margin-top: 20px; /* espaço entre os botões e a mensagem */
+      font-size: 18px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="question">O Felipe é viado?</div>
+  <button class="button" onclick="moveButton()">não</button>
+  <button class="button" onclick="showMessage()">sim</button>
+
+  <div id="message" style="display: none;">Parabéns! Você acertou!</div>
+
+  <script>
+    function moveButton() {
+      var button = document.querySelector('.button');
+      var randomX = Math.random() * (window.innerWidth - button.offsetWidth);
+      var randomY = Math.random() * (window.innerHeight - button.offsetHeight);
+
+      button.style.position = 'absolute';
+      button.style.left = randomX + 'px';
+      button.style.top = randomY + 'px';
+    }
+
+    function showMessage() {
+      var message = document.getElementById('message');
+      message.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
